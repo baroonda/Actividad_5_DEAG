@@ -47,7 +47,11 @@ def entrenar_y_registrar(nombre_modelo, modelo, param_grid, X_train, y_train, X_
         mlflow.log_artifact(ruta_img)
         
         # 4. Registrar Modelo
-        mlflow.sklearn.log_model(mejor_modelo, f"modelo_{nombre_modelo}")
+        mlflow.sklearn.log_model(
+    mejor_modelo, 
+    f"modelo_{nombre_modelo}", 
+    serialization_format="cloudpickle"
+)
         print(f"{nombre_modelo} finalizado. ROC-AUC: {metricas['roc_auc']:.4f}\n")
 
 if __name__ == "__main__":
