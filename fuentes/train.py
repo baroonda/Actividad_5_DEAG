@@ -59,7 +59,7 @@ if __name__ == "__main__":
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     # Configurar MLflow para que guarde localmente en la carpeta del proyecto
-    mlflow.set_tracking_uri("file:./mlruns")
+    mlflow.set_tracking_uri("sqlite:///mlflow.db")
     mlflow.set_experiment("Telco_Churn_Experiment")
 
     # Modelo 1: Regresión Logística
